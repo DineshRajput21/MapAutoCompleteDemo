@@ -5,5 +5,6 @@ const Style = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
   },
+  mapStyle: {},
 });
 export default Style;

@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 
-export const Style = StyleSheet.create({
-  container: {
+export default StyleSheet.create({
+  mapStyle: {
     position: 'absolute',
     top: 0,
     bottom: 0,
