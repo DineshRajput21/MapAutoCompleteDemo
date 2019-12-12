@@ -5,6 +5,11 @@ const Style = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
   },
-  mapStyle: {},
+  mapStyle: {
+    flex: 1,
+  },
+  autoCompleteInput: {
+    marginVertical: 20,
+  },
 });
 export default Style;
