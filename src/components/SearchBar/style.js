@@ -1,13 +1,13 @@
 import {StyleSheet} from 'react-native';
 import {heightToDP as height, widthToDP as width} from '../../utils/Dimensions';
 
-export const styles = StyleSheet.create({
+export default StyleSheet.create({
   inputBox: {
     marginHorizontal: width(2),
   },
   input: {
     height: height(6),
-    backgroundColor: 'white',
+    flex: 1,
   },
   defaultInput: {
     fontSize: height(2),
@@ -57,5 +57,9 @@ export const styles = StyleSheet.create({
     bottom: height(1),
     left: width(2),
     right: width(2),
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    backgroundColor: 'white',
   },
 });

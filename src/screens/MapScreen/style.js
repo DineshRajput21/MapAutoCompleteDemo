@@ -11,5 +11,10 @@ const Style = StyleSheet.create({
   autoCompleteInput: {
     marginVertical: 20,
   },
+  errText: {
+    color: 'red',
+    textAlign: 'center',
+    paddingHorizontal: 15,
+  },
 });
 export default Style;

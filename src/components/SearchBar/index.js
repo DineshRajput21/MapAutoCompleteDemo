@@ -9,7 +9,8 @@ import {
   Text,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import {styles} from './style';
+import Style from './style';
+import VectorIcon from '../VectorIcon';
 
 const SearchBar = forwardRef((props, inputRef) => {
   const {
@@ -24,28 +25,35 @@ const SearchBar = forwardRef((props, inputRef) => {
 
   const renderItems = ({item}) => (
     <TouchableOpacity
-      style={styles.listItem}
+      style={Style.listItem}
       onPress={() => onPressListItem(item)}>
-      <Text style={styles.placeTxt} numberOfLines={1}>
+      <Text style={Style.placeTxt} numberOfLines={1}>
         {item.formatted_address}
       </Text>
     </TouchableOpacity>
   );
+  const onCrossPress = () => {
+    inputRef.current.clear();
+  };
 
   return (
-    <View style={[customContainerStyle, styles.inputBox]}>
-      <TextInput
-        ref={inputRef}
-        style={[styles.input, styles.cardStyle, customInputStyle]}
-        placeholder={placeholder}
-        placeholderTextColor={'grey'}
-        {...pendingProps}
-      />
-      <View style={styles.loadingCloseContainer}>
+    <View style={[customContainerStyle, Style.inputBox]}>
+      <View style={Style.searchContainer}>
+        <VectorIcon onPress={onCrossPress} size={20} icon={'search'} />
+        <TextInput
+          ref={inputRef}
+          style={[Style.input, Style.cardStyle, customInputStyle]}
+          placeholder={placeholder}
+          placeholderTextColor={'grey'}
+          {...pendingProps}
+        />
+        <VectorIcon onPress={onCrossPress} size={25} icon={'close'} />
+      </View>
+      <View style={Style.loadingCloseContainer}>
         <ActivityIndicator animating={loading} size={20} />
       </View>
       <FlatList
-        style={[styles.listContainer, styles.cardStyle]}
+        style={[Style.listContainer, Style.cardStyle]}
         showsVerticalScrollIndicator={false}
         bounces={false}
         data={listData}
@@ -64,10 +72,11 @@ SearchBar.propTypes = {
 };
 
 SearchBar.defaultProps = {
-  customInputStyle: styles.defaultInput,
+  customInputStyle: Style.defaultInput,
   listData: [],
   loading: false,
   onPressListItem: () => {},
+  placeholder: 'Search...',
 };
 
 export default memo(SearchBar);

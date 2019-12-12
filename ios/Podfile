@@ -37,6 +37,7 @@ target 'MapAutoCompleteDemo' do
   pod 'react-native-google-maps', :path => rn_maps_path
   pod 'GoogleMaps'
   pod 'Google-Maps-iOS-Utils'
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
   
   target 'MapAutoCompleteDemoTests' do
     inherit! :search_paths
